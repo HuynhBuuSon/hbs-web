@@ -4,7 +4,7 @@ class MainContent extends React.Component {
     render() {
         return (
             <div>
-                MainContent
+                MainContent <span>{this.props.route}</span>
             </div>
       
         )

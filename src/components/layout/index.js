@@ -3,7 +3,7 @@ import BasicLayout from './basicLayout'
 
 class Layout extends React.Component {
     render() {
-      return <BasicLayout />
+      return <BasicLayout global={this.props.global} route={this.props.route}/>
     }
   }
 
