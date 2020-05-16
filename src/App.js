@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);    
     if (!firebase.apps.length) {
       firebase.initializeApp(mainConfig.firebaseConfig)
-  }
+    }
     firebase.analytics();
     var database = firebase.database()  
     this.state = {
