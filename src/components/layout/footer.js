@@ -21,14 +21,14 @@ class Footer extends React.Component {
         })
     }
     return (
-        <footer className="footer container py-5">
-        <div className="row">
-          <div className="col-12 col-md">
+        <footer className="navbar fixed-bottom" >
+        <div className="row col-12">
+          <div className="col-4 col-md">
             <small className="d-block mb-3 text-muted">&copy; 2020</small>
           </div>
           {rootLinks.map(item => {
                     return (
-                    <div className="col-6 col-md">
+                    <div className="col-4 col-md">
                     <h5>{item.title}</h5>
                     <ul className="list-unstyled text-small">
                     {item.children.map(childitem => {

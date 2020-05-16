@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import './assets/styles.scss'
 import './assets/product.scss'
 import * as serviceWorker from './serviceWorker'
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";

@@ -8,7 +8,7 @@ class MainContent extends React.Component {
     render() {
         let mainContent = this.props.global.mainData.mainContent
         return (
-            <div>
+            <div className="wrap">
                 {mainContent.map(content => {
                     return <div className="col-md-5 p-lg-1 mx-auto my-4" dangerouslySetInnerHTML={{__html: content.data}} ></div>
                 })}                

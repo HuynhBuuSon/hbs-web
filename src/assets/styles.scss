@@ -2,3 +2,14 @@ $theme-colors: (
     "info": tomato,
     "danger": teal
 );
+
+
+body {
+    .wrap {
+        padding-bottom: 170px;
+    }
+    
+    footer {
+        background-color: lightgray;
+    }
+}
