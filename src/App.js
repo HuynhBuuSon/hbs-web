@@ -17,7 +17,10 @@ class App extends React.Component {
       global : {
         mainData : {
           toc : [],
-          topic : []
+          topic : [],
+          footerLink : [],
+          mainContent : [],
+          headline :[]
         }
       }
     }

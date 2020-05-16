@@ -11,8 +11,8 @@ class BasicLayout extends React.Component {
         return (
         <div className="main-body">
             <Header global={this.props.global}/>
-            <MainContent  route={this.props.route} />
-            <Footer />
+            <MainContent global={this.props.global} route={this.props.route} />
+            <Footer  global={this.props.global}/>
         </div>
         )
     }
