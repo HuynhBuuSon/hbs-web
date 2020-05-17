@@ -9,13 +9,17 @@ import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 ReactDOM.render(
   <HashRouter >
     <Switch>
-      <Route path="/index" render={props => <App {...props} />} />
+      <Route path="/index" route='index' render={props => <App {...props} />} />
       <Route
         path="/docs"
-        render={props => <App {...props} route='doc' />}
+        render={props => <App {...props} route='docs' />}
       />
       <Route
-        path="/topics"
+        path="/topics/:page?"
+        render={props => <App {...props} route='topics' />}
+      />
+      <Route
+        path="/topic/:topicName"
         render={props => <App {...props} route='topic' />}
       />
       <Redirect to="/index" />

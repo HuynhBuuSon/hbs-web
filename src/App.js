@@ -25,21 +25,20 @@ class App extends React.Component {
       }
     }
     var toc = database.ref('main/')
-      toc.on('value', snapshot => {
+    toc.on('value', snapshot => {
         let mainData = snapshot.val()
         if(mainData) {
           let global = {
             mainData
           }
           this.setState({global})
-        }
-        
-    });
+        }        
+    })
   }
 
   render() {
     return (
-      <Layout mainConfig global={this.state.global} route={this.props.route}/>
+      <Layout mainConfig global={this.state.global} route={this.props.route} {...this.props}/>
     )
   }
 }

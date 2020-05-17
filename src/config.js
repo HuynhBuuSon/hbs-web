@@ -9,5 +9,8 @@ export const mainConfig = {
     messagingSenderId: "454239726753",
     appId: "1:454239726753:web:8c4b0ea94b08f815a514e0",
     measurementId: "G-35NXTCMPLQ"
+  },
+  pagination : {
+    pageSize : 2
   }
 }
