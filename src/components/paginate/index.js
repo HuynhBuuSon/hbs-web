@@ -1,19 +1,24 @@
 import React from 'react'
-import { Pagination } from 'react-bootstrap';
+import { Pagination } from 'react-bootstrap'
+import { mainConfig } from './../../config'
 
 class Topic extends React.Component {
   constructor(props) {
     super(props);
+    
+  }
+
+  componentDidUpdate() {
     this.baseLink = this.props.baseLink
     this.currentPage = this.props.currentPage
-    this.totalPage = this.props.totalPage
+    this.totalPage = this.props.numberChild/mainConfig.pagination.pageSize
     this.items = [];
     for (let number = 1; number <= this.totalPage; number++) {
         let pageLink = {active: false, number: number, type: false}
         if(this.totalPage > 10) {
             if(number === 1) {
                 this.items.push(
-                        <Pagination.Item key={number} active={number === this.currentPage} href={`${this.baseLink}${number}`}>
+                        <Pagination.Item key={number} active={number === this.currentPage} onClick={this.props.changePage} href={`${this.baseLink}${number}`}>
                         {number}
                         </Pagination.Item>
                     )
@@ -39,7 +44,7 @@ class Topic extends React.Component {
             }
         } else {
             this.items.push(
-                <Pagination.Item key={number} active={number === this.currentPage}  href={`${this.baseLink}${number}`}>
+                <Pagination.Item key={number} active={number === this.currentPage} href={`${this.baseLink}${number}`} >
                 {number}
                 </Pagination.Item>
             )

@@ -3,7 +3,6 @@ import Topics from './../topics'
 import Paginate from './../paginate'
 import { mainConfig } from './../../config'
 import firebase from 'firebase'
-
 class ListTopics extends React.Component {
     constructor(props) {
         super(props)
@@ -12,12 +11,27 @@ class ListTopics extends React.Component {
             numberChild: 5
           }
         this.getTopicData = this.getTopicData.bind(this)
-        this.page = this.props.match.params.page?this.props.match.params.page : 0 
-        
+        this.changePage = this.changePage.bind(this)
+        this.page = this.props.match.params.page?this.props.match.params.page : 1        
     }
 
     componentDidMount() {
         this.getTopicData()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.page !== prevProps.match.params.page) {
+            this.getTopicData()
+          }
+        
+    }
+
+    changePage(number) {
+        this.page = this.props.match.params.page?this.props.match.params.page : 1    
+        this.getTopicData()
+        console.log(this.props.location.search); // replace param with your own 
+        this.props.history.push("/topics/"+number)
+        //this.props.history.push("#testing")
     }
 
     
@@ -26,10 +40,11 @@ class ListTopics extends React.Component {
             firebase.initializeApp(mainConfig.firebaseConfig)
             }
         firebase.analytics();
-
+        this.page = this.props.match.params.page?this.props.match.params.page : 1
         var database = firebase.database()
-        let startAt = this.page * mainConfig.pagination.pageSize
-        let endAt = (this.page + 1) * mainConfig.pagination.pageSize
+        let startAt = (this.page - 1) * mainConfig.pagination.pageSize + 1 
+        let endAt = this.page * mainConfig.pagination.pageSize
+        console.log(mainConfig.pagination.pageSize)
         let topicSummary = database.ref('topic/summary')
         topicSummary.on('value', summary => {
             let value = summary.val()
@@ -47,7 +62,7 @@ class ListTopics extends React.Component {
         return (
         <div className="main-body">
             <Topics listTopics={this.state.listTopics}/>
-            <Paginate baseLink={'#/topics/'} currentPage={this.page} totalPage={this.state.numberChild}/>
+            <Paginate baseLink={'#/topics/'} currentPage={this.page} numberChild={this.state.numberChild} changePage={this.changePage}/>
         </div>
         )
     }
