@@ -5,7 +5,7 @@ import HomePage from './homePage'
 
 class MainContent extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.renderPage = this.renderPage.bind(this)
         this.renderHomePage = this.renderHomePage.bind(this)
         this.renderListTopicPage = this.renderListTopicPage.bind(this)

@@ -19,7 +19,7 @@ class ListTopics extends React.Component {
         this.getTopicData()
     }
 
-    componentDidUpdate(prevProps) {
+    componentWillUpdate(prevProps) {
         if (this.props.match.params.page !== prevProps.match.params.page) {
             this.getTopicData()
           }
@@ -29,12 +29,9 @@ class ListTopics extends React.Component {
     changePage(number) {
         this.page = this.props.match.params.page?this.props.match.params.page : 1    
         this.getTopicData()
-        console.log(this.props.location.search); // replace param with your own 
+        console.log(this.props.location.search)
         this.props.history.push("/topics/"+number)
-        //this.props.history.push("#testing")
-    }
-
-    
+    }    
     getTopicData() {
         if (!firebase.apps.length) {
             firebase.initializeApp(mainConfig.firebaseConfig)
@@ -53,9 +50,11 @@ class ListTopics extends React.Component {
          })
         var topicDbSelected = database.ref('topic/topic').orderByChild('id').startAt(startAt).endAt(endAt)       
         topicDbSelected.on('value', snapshot => {
-            let listTopics = snapshot.val()
-            if(listTopics && listTopics.length > 0)
-                this.setState({listTopics})
+            let listTopics = []
+            snapshot.forEach(function(childSnapshot) {
+                listTopics.push(childSnapshot.val())
+              })
+            this.setState({listTopics})
         })
     }
     render() {

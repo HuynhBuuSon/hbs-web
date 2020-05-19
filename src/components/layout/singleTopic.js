@@ -8,15 +8,15 @@ class SingleTopic extends React.Component {
         if (!firebase.apps.length) {
             firebase.initializeApp(mainConfig.firebaseConfig)
           }
-        firebase.analytics();
+        firebase.analytics()
         var database = firebase.database()
         var topicDb = database.ref('topic/topic')
-        var userQuery = topicDb.orderByKey('order').orderByChild('active').equalTo(1);
+        var userQuery = topicDb.orderByKey('order').orderByChild('active').equalTo(1)
         userQuery.once("value", function(snapshot) {
         snapshot.forEach(function(child) {
-            console.log(child.key, child.val());
-        });
-        });
+            console.log(child.key, child.val())
+          })
+        })
       }
     render() {
         return (

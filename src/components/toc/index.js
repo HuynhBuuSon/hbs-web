@@ -9,14 +9,14 @@ class TOC extends React.Component {
 
     }
     componentDidMount() {
-        this.getTOCData();
+        this.getTOCData()
       }
     getTOCData = () => {
-        let ref = firebase.database().ref("/");
+        let ref = firebase.database().ref("/")
         ref.on("value", snapshot => {
-          const state = snapshot.val();
-          this.setState(state);
-        });
+          const state = snapshot.val()
+          this.setState(state)
+        })
     }
     render() {
         return (            

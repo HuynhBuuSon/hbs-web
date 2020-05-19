@@ -2,10 +2,11 @@ import React from 'react'
 
 class Topic extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
   }
   render() {
+    let list = this.props.listTopics
     return (
         <div >
           {this.props.listTopics.map(topic => {

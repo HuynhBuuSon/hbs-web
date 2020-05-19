@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from './logo.svg'
 import { mainConfig } from './config'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from './components/layout'
@@ -7,11 +6,11 @@ import firebase from 'firebase'
 
 class App extends React.Component {
   constructor(props) {
-    super(props);    
+    super(props)
     if (!firebase.apps.length) {
       firebase.initializeApp(mainConfig.firebaseConfig)
     }
-    firebase.analytics();
+    firebase.analytics()
     var database = firebase.database()  
     this.state = {
       global : {

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap'
 
 class Header extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
 
       }
     render() {

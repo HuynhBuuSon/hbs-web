@@ -4,7 +4,7 @@ import { mainConfig } from './../../config'
 
 class Topic extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     
   }
 
@@ -12,7 +12,7 @@ class Topic extends React.Component {
     this.baseLink = this.props.baseLink
     this.currentPage = this.props.currentPage
     this.totalPage = this.props.numberChild/mainConfig.pagination.pageSize
-    this.items = [];
+    this.items = []
     for (let number = 1; number <= this.totalPage; number++) {
         let pageLink = {active: false, number: number, type: false}
         if(this.totalPage > 10) {
