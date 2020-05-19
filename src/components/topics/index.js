@@ -11,8 +11,8 @@ class Topic extends React.Component {
         <div >
           {this.props.listTopics.map(topic => {
             return ( <div className="row col-12">
-            <h2 class="display-4 font-weight-normal">{topic.title}</h2>
-            <p class="lead font-weight-normal">{topic.desc}</p>
+            <h2 className="display-4 font-weight-normal">{topic.title}</h2>
+            <p className="lead font-weight-normal">{topic.desc}</p>
             </div>
             )
           })}

@@ -36,7 +36,7 @@ class ListTopics extends React.Component {
         if (!firebase.apps.length) {
             firebase.initializeApp(mainConfig.firebaseConfig)
             }
-        firebase.analytics();
+        firebase.analytics()
         this.page = this.props.match.params.page?this.props.match.params.page : 1
         var database = firebase.database()
         let startAt = (this.page - 1) * mainConfig.pagination.pageSize + 1 
